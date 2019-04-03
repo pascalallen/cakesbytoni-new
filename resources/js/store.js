@@ -6,7 +6,7 @@ import promise from 'redux-promise-middleware';
 
 import reducer from './reducers';
 
-let middleware = [promise(), thunk];
+let middleware = [promise, thunk];
 
 if (process.env.NODE_ENV === 'development') {
   middleware = [...middleware, logger];

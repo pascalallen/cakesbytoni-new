@@ -7,7 +7,7 @@ class Banner extends Component {
     return (
       <StyledRow>
         <Col md={12}>
-          <StyledImage src="/img/ToniMarie-01.svg" />
+          <StyledImage src="/images/ToniMarie-01.svg" />
         </Col>
       </StyledRow>
     )

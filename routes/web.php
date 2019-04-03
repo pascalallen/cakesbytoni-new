@@ -11,6 +11,12 @@
 |
 */
 
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => false,
+]);
+
 Route::view('/{path?}', 'welcome')
      ->where('path', '.*')
      ->name('react');
@@ -19,6 +25,5 @@ Route::view('/{path?}', 'welcome')
 //     return view('welcome');
 // });
 
-// Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

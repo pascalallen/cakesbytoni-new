@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { StyledCol, ImageText, StyledRow } from './styles';
-import { fetchAll } from '../../actions/resource';
+import { fetchAll } from '../../../actions/resource';
 
 const mapStateToProps = state => ({
   data: state.resource.data,

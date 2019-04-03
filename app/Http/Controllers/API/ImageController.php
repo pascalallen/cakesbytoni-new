@@ -22,9 +22,9 @@ class ImageController extends Controller
         if ($request->has('random')) {
             $images = Image::inRandomOrder()
                 ->paginate($pageSize);
+        } else {
+            $images = Image::paginate($pageSize);
         }
-
-        $images = Image::paginate($pageSize);
 
         return ImageResource::collection($images);
     }

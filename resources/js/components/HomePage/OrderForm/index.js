@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { StyledDiv } from './styles';
 import {Form, Button, Col} from 'react-bootstrap';
-import { newRecord } from '../../actions/resource';
+import { newRecord } from '../../../actions/resource';
 
 class OrderForm extends Component {
   constructor(props) {
