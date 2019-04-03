@@ -20,7 +20,7 @@ class CreateImagesTable extends Migration
             $table->string('imgur_id');
             $table->integer('category_id')->nullable();
             $table->string('slug');
-            $table->boolean('main')->nullable();
+            $table->boolean('main')->default(false);
             $table->timestamps();
         });
     }
