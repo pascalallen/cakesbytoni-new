@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { StyledDiv } from './styles';
+import { StyledRow } from './styles';
 import {Form, Button, Col} from 'react-bootstrap';
 import { newRecord } from '../../../actions/resource';
 
@@ -40,7 +40,7 @@ class OrderForm extends Component {
     const { order } = this.props;
 
     return (
-      <StyledDiv>
+      <StyledRow>
         {order.unique_id ?
           <Redirect to={`/orders/${order.unique_id}`} />
         :
@@ -107,7 +107,7 @@ class OrderForm extends Component {
                 </Form.Row>
             </Form>
         }
-      </StyledDiv>
+      </StyledRow>
     )
   }
 }

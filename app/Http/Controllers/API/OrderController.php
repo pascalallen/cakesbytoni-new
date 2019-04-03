@@ -72,17 +72,12 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $order = Order::where('unique_id', $id)->first();
-
-        if (!$order) {
-            return response(null, Response::HTTP_NOT_FOUND);
-        }
-
+        $order = Order::where('unique_id', $id);
         $order->update($request->all());
 
         // Mail::to(env('ADMIN_EMAIL'))->send(new UpdateOrder($order));
 
-        return new OrderResource($order);
+        return new OrderResource($order->first());
     }
 
     /**

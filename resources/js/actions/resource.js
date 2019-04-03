@@ -3,20 +3,20 @@ import * as constants from '../constants';
 
 const baseUrl = '/api';
 
-export function fetchSingle(component, slug, params = {}) {
+export function fetchSingle(component, slug, optionalParams = {}) {
   return (dispatch) => {
-    dispatch({ type: constants.FETCH_ALL });
-    axios.get(`${baseUrl}/${component}`, {
+    dispatch({ type: constants.FETCH_SINGLE });
+    axios.get(`${baseUrl}/${component}/${slug}`, {
       params: optionalParams,
     })
       .then((response) => {
         dispatch({
-          type: constants.FETCH_ALL_SUCCESS,
+          type: constants.FETCH_SINGLE_SUCCESS,
           payload: response.data,
         });
       })
       .catch((err) => {
-        dispatch({ type: constants.FETCH_ALL_ERROR, payload: err });
+        dispatch({ type: constants.FETCH_SINGLE_ERROR, payload: err });
       });
   };
 }
@@ -54,3 +54,19 @@ export function newRecord(component, params = {}) {
       });
   };
 }
+
+export function updateRecord(component, slug, params = {}) {
+    return (dispatch) => {
+      dispatch({ type: constants.UPDATE_RECORD });
+      axios.put(`${baseUrl}/${component}/${slug}`, params)
+        .then((response) => {
+          dispatch({
+            type: constants.UPDATE_RECORD_SUCCESS,
+            payload: response.data,
+          });
+        })
+        .catch((err) => {
+          dispatch({ type: constants.UPDATE_RECORD_ERROR, payload: err });
+        });
+    };
+  }

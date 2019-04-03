@@ -46,6 +46,7 @@ export const StyledRow = styled(Row)`
   justify-content: center;
   align-items: center;
   height: 100%;
+  margin: auto;
 `;
 
 export const StyledLink = styled.a`
