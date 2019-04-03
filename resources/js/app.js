@@ -15,7 +15,7 @@ import store from './store';
 
 import HomePage from './components/HomePage';
 // import Overview from './components/Overview';
-// import Show from './components/Show';
+import Order from './components/Order';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -23,7 +23,7 @@ ReactDOM.render(
       <div>
         <Route exact path="/" component={HomePage} />
         {/* <Route exact path="/:resource" component={Overview} /> */}
-        {/* <Route path="/:resource/:slug" component={Show}></Route> */}
+        <Route path="/orders/:uniqueId" component={Order}></Route>
       </div>
     </Router>
   </Provider>,
