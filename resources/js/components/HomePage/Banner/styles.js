@@ -10,5 +10,4 @@ export const StyledRow = styled(Row)`
 
 export const StyledImage = styled.img`
   width: 100%;
-  min-width: 650px;
 `;

@@ -5,7 +5,7 @@ import { StyledCol, ImageText, StyledRow } from './styles';
 import { fetchAll } from '../../../actions/resource';
 
 const mapStateToProps = state => ({
-  data: state.resource.data,
+  data: state.resource.all,
   fetched: state.resource.fetched,
 });
 
@@ -52,10 +52,7 @@ class ImageReel extends Component {
 ImageReel.propTypes = {
   fetchAll: PropTypes.func.isRequired,
   fetched: PropTypes.bool.isRequired,
-  data: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-  ]).isRequired,
+  data: PropTypes.array.isRequired,
 };
 
 export default connect(

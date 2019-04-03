@@ -22,7 +22,7 @@ class CreateOrdersTable extends Migration
             $table->string('instructions')->nullable();
             $table->timestamp('due_date');
             $table->string('phone_number')->nullable();
-            $table->string('price');
+            $table->string('price')->default(0);
             $table->binary('image')->nullable();
             $table->boolean('completed')->default(false);
             $table->string('unique_id');

@@ -1,7 +1,8 @@
 import * as constants from '../constants';
 
 export default function reducer(state = {
-  data: {},
+  all: [],
+  single: {},
   params: {
     pages: -1,
     pageSize: 5,
@@ -16,7 +17,7 @@ export default function reducer(state = {
       return {
         ...state,
         fetching: true,
-        data: {},
+        all: [],
         params: { ...state.params, loading: true },
       };
     }
@@ -33,7 +34,7 @@ export default function reducer(state = {
         ...state,
         fetching: false,
         fetched: true,
-        data: action.payload.data,
+        all: action.payload.data,
         params,
       };
     }
@@ -41,7 +42,7 @@ export default function reducer(state = {
       return {
         ...state,
         fetching: true,
-        data: {},
+        single: {},
         params: { ...state.params, loading: true },
       };
     }
@@ -58,7 +59,7 @@ export default function reducer(state = {
         ...state,
         fetching: false,
         fetched: true,
-        data: action.payload.data,
+        single: action.payload.data,
         params,
       };
     }
@@ -66,7 +67,7 @@ export default function reducer(state = {
       return {
         ...state,
         fetching: true,
-        data: {},
+        single: {},
         params: { ...state.params, loading: true },
       };
     }
@@ -81,7 +82,7 @@ export default function reducer(state = {
         ...state,
         fetching: false,
         fetched: true,
-        data: action.payload.data,
+        single: action.payload.data,
         params,
       };
     }

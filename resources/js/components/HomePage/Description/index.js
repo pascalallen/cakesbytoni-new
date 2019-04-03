@@ -12,7 +12,7 @@ class Description extends Component {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae consequatur harum odit voluptate quidem, optio accusamus adipisci veniam culpa ad. Dolorem asperiores explicabo repellat in maxime nesciunt, recusandae consectetur? Quaerat.
           </Col>
             <Col md={6}>
-              <ImageDiv src="/img/ToniMarie-02.svg">
+              <ImageDiv src="/images/ToniMarie-02.svg">
                 <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae consequatur harum odit voluptate quidem, optio accusamus adipisci veniam culpa ad. Dolorem asperiores explicabo repellat in maxime nesciunt, recusandae consectetur? Quaerat.</span>
               </ImageDiv>
             </Col>

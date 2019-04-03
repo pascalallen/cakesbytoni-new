@@ -8,6 +8,7 @@ use App\Order;
 use App\Http\Resources\Order as OrderResource;
 use Illuminate\Http\Response;
 use App\Http\Requests\NewOrderRequest;
+use Illuminate\Support\Carbon;
 
 class OrderController extends Controller
 {
@@ -29,11 +30,11 @@ class OrderController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  NewOrderRequest  $request
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @return \App\Http\Resources\Order
      */
     public function store(NewOrderRequest $request)
     {
-        Order::create([
+        $order = Order::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
@@ -47,7 +48,7 @@ class OrderController extends Controller
 
         // Mail::to(env('ADMIN_EMAIL'))->send(new NewOrder($order));
 
-        return response(null, Response::HTTP_OK);
+        return new OrderResource($order);
     }
 
     /**

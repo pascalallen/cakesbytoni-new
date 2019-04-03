@@ -1,9 +1,16 @@
 import React, {Component} from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { StyledDiv } from './styles';
 import {Form, Button, Col} from 'react-bootstrap';
 import { newRecord } from '../../../actions/resource';
+
+const mapStateToProps = state => ({
+  test: state.resource.all,
+  order: state.resource.single,
+  fetched: state.resource.fetched,
+});
 
 class OrderForm extends Component {
   constructor(props) {
@@ -19,22 +26,23 @@ class OrderForm extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleClick(event) {
     this.props.newRecord('orders', this.state);
-    event.preventDefault();
+    console.log(this.props.order, this.state.all)
+    // <Redirect to={`/orders/${order.unique_id}`} />
   }
 
   render(){
     return (
       <StyledDiv>
-        <Form method="POST" className="form col-md-8" onSubmit={this.handleSubmit}>
+        <Form className="form col-md-8" >
           <Form.Row>
             <Form.Group controlId="formBasicFirstName" className="col-md-4">
               <Form.Label>First Name</Form.Label>
@@ -89,7 +97,7 @@ class OrderForm extends Component {
                 <Form.Control type="date" name="due_date" onChange={this.handleChange} />
               </Form.Group>
               <Form.Group controlId="formBasicSubmit">
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="button" onClick={this.handleClick}>
                   Submit
                 </Button>
               </Form.Group>
@@ -106,7 +114,7 @@ OrderForm.propTypes = {
 };
 
 export default connect(
-  null,
+    mapStateToProps,
   {
     newRecord,
   },
