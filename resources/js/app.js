@@ -7,10 +7,25 @@
 
 require('./bootstrap');
 
-/**
- * Next, we will create a fresh React component instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import store from './store';
 
-require('./components/Example');
+import HomePage from './components/HomePage';
+import Overview from './components/Overview';
+import Show from './components/Show';
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Router>
+      <div>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/:resource" component={Overview} />
+        {/* <Route path="/:resource/:slug" component={Show}></Route> */}
+      </div>
+    </Router>
+  </Provider>,
+  document.getElementById('react')
+);
