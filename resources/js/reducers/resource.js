@@ -10,6 +10,8 @@ export default function reducer(state = {
   },
   fetching: false,
   fetched: false,
+  updating: false,
+  updated: false,
   error: null,
 }, action) {
   switch (action.type) {
@@ -89,13 +91,13 @@ export default function reducer(state = {
     case constants.UPDATE_RECORD: {
         return {
           ...state,
-          fetching: true,
+          updating: true,
           single: {},
           params: { ...state.params, loading: true },
         };
       }
       case constants.UPDATE_RECORD_ERROR: {
-        return { ...state, fetching: false, error: action.payload };
+        return { ...state, updating: false, error: action.payload };
       }
       case constants.UPDATE_RECORD_SUCCESS: {
         const params = {
@@ -103,8 +105,8 @@ export default function reducer(state = {
         };
         return {
           ...state,
-          fetching: false,
-          fetched: true,
+          updating: false,
+          updated: true,
           single: action.payload.data,
           params,
         };

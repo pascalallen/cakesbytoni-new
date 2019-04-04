@@ -57,11 +57,18 @@ class ImageController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\Image|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $image = Image::find($id);
+        $image->update($request->all());
+
+        if (!$image->exists()) {
+            return response(null, Response::HTTP_NOT_FOUND);
+        }
+
+        return new ImageResource($image->first());
     }
 
     /**

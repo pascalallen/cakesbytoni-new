@@ -114753,6 +114753,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/index.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles */ "./resources/js/components/Order/styles.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -114780,10 +114781,12 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var mapStateToProps = function mapStateToProps(state) {
   return {
     order: state.resource.single,
-    params: state.resource.params
+    params: state.resource.params,
+    updated: state.resource.updated
   };
 };
 
@@ -114822,10 +114825,23 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var order = this.props.order;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"], {
+      var _this$props = this.props,
+          order = _this$props.order,
+          updated = _this$props.updated;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_6__["StyledContainer"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_6__["StyledRow"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"], {
         className: "form col-md-8"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Your Order"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Row, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Group, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Your Order"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/",
+        style: {
+          "float": "right",
+          marginTop: "-40px"
+        },
+        className: "text-muted"
+      }, "Home"), updated && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Alert"], {
+        variant: "success"
+      }, "Thanks for the update! We're on it \uD83D\uDE0E"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles__WEBPACK_IMPORTED_MODULE_6__["ImageDiv"], {
+        src: "/images/ToniMarie-02.svg"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Row, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Group, {
         controlId: "formBasicFirstName",
         className: "col-md-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Label, null, "First Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Control, {
@@ -114849,7 +114865,7 @@ function (_Component) {
         onChange: this.handleChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Text, {
         className: "text-muted"
-      }, "We'll never share your email with anyone else."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Row, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Group, {
+      }, "We'll never share your email with anyone else.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Row, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Group, {
         controlId: "formBasicInstructions",
         className: "col-md-8"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Label, null, "Special Instructions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Form"].Control, {
@@ -114916,7 +114932,7 @@ function (_Component) {
         variant: "primary",
         type: "button",
         onClick: this.handleClick
-      }, "Submit")))));
+      }, "Submit")))))));
     }
   }]);
 
@@ -114930,6 +114946,62 @@ Order.propTypes = {
   fetchSingle: _actions_resource__WEBPACK_IMPORTED_MODULE_3__["fetchSingle"],
   updateRecord: _actions_resource__WEBPACK_IMPORTED_MODULE_3__["updateRecord"]
 })(Order));
+
+/***/ }),
+
+/***/ "./resources/js/components/Order/styles.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/Order/styles.js ***!
+  \*************************************************/
+/*! exports provided: ImageDiv, StyledRow, StyledContainer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageDiv", function() { return ImageDiv; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyledRow", function() { return StyledRow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyledContainer", function() { return StyledContainer; });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/index.js");
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  height: 100vh;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n  margin: auto;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  background-image: url(", ");\n  background-position: 50% 50%;\n  background-repeat:   no-repeat;\n  background-size: 1000px;\n  min-height: 215px;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+var ImageDiv = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject(), function (props) {
+  return props.src;
+});
+var StyledRow = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Row"])(_templateObject2());
+var StyledContainer = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Container"])(_templateObject3());
 
 /***/ }),
 
@@ -115024,6 +115096,8 @@ function reducer() {
     },
     fetching: false,
     fetched: false,
+    updating: false,
+    updated: false,
     error: null
   };
   var action = arguments.length > 1 ? arguments[1] : undefined;
@@ -115132,7 +115206,7 @@ function reducer() {
     case _constants__WEBPACK_IMPORTED_MODULE_0__["UPDATE_RECORD"]:
       {
         return _objectSpread({}, state, {
-          fetching: true,
+          updating: true,
           single: {},
           params: _objectSpread({}, state.params, {
             loading: true
@@ -115143,7 +115217,7 @@ function reducer() {
     case _constants__WEBPACK_IMPORTED_MODULE_0__["UPDATE_RECORD_ERROR"]:
       {
         return _objectSpread({}, state, {
-          fetching: false,
+          updating: false,
           error: action.payload
         });
       }
@@ -115154,8 +115228,8 @@ function reducer() {
           loading: false
         };
         return _objectSpread({}, state, {
-          fetching: false,
-          fetched: true,
+          updating: false,
+          updated: true,
           single: action.payload.data,
           params: _params3
         });
