@@ -9,6 +9,7 @@ use App\Http\Resources\Order as OrderResource;
 use Illuminate\Http\Response;
 use App\Http\Requests\NewOrderRequest;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
