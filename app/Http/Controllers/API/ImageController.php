@@ -20,10 +20,14 @@ class ImageController extends Controller
         $pageSize = $request->get('page_size', 20);
 
         if ($request->has('random')) {
-            $images = Image::inRandomOrder()
+            $images = Image::where('main', true)
+                ->distinct()
+                ->inRandomOrder()
                 ->paginate($pageSize);
         } else {
-            $images = Image::paginate($pageSize);
+            $images = Image::where('main', true)
+                ->distinct()
+                ->paginate($pageSize);
         }
 
         return ImageResource::collection($images);
@@ -79,7 +83,7 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        $image = Image::where('imgur_id', $id)->delete();
+        $image = Image::find($id)->delete();
 
         if (!$image) {
             return response(null, Response::HTTP_NOT_FOUND);

@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ReactTable from 'react-table';
-import 'react-table/react-table.css';
-import { fetchUser } from '../../actions/user';
 import { fetchAll } from '../../actions/resource';
-
-import structure from './structures';
+import Image from "react-bootstrap/Image";
+import {StyledCol} from "../HomePage/ImageReel/styles";
 
 const mapStateToProps = state => ({
-  data: state.resource.data,
+  data: state.resource.all,
   fetched: state.resource.fetched,
   params: state.resource.params,
-  // user: state.user.user,
 });
 
 class Overview extends React.Component {
@@ -21,12 +17,15 @@ class Overview extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAll(this.props.match.params.resource);
+    // this.props.fetchAll(this.props.match.params.resource);
+    this.props.fetchAll('images');
   }
 
   render() {
     const {
-      data, fetched, params,
+      data,
+      fetched,
+      params,
     } = this.props;
 
     let renderedData = [];
@@ -38,17 +37,13 @@ class Overview extends React.Component {
     }
 
     return (
-      <div>
-        <ReactTable
-          filterable
-          data={renderedData}
-          columns={structure(this.props.match.params.resource)}
-          manual
-          pages={params.pages}
-          loading={params.loading} // Display the loading overlay when we need it
-          onFetchData={this.updateTable}
-          className="-striped -highlight"
-        />
+      <div style={{paddingRight: "15px", paddingLeft: "15px"}}>
+        <h1>Images</h1><a href="/" style={{float: "right", marginTop: "-40px"}} className="text-muted" >Home</a>
+        {data.map((item, i) => <Image
+          key={i}
+          src={`https://i.imgur.com/${item.imgur_id}.jpg`}
+          fluid
+        />)}
       </div>
     );
   }
@@ -57,17 +52,13 @@ class Overview extends React.Component {
 Overview.propTypes = {
   fetchAll: PropTypes.func.isRequired,
   fetched: PropTypes.bool.isRequired,
-  data: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-  ]).isRequired,
+  data: PropTypes.array.isRequired,
   params: PropTypes.object.isRequired,
 };
 
 export default connect(
   mapStateToProps,
   {
-    fetchUser,
     fetchAll,
   },
 )(Overview);

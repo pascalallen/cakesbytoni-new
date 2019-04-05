@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import store from './store';
 
 import HomePage from './components/HomePage';
-// import Overview from './components/Overview';
+import Overview from './components/Overview';
 import Order from './components/Order';
 
 ReactDOM.render(
@@ -22,8 +22,8 @@ ReactDOM.render(
     <Router>
       <div>
         <Route exact path="/" component={HomePage} />
-        {/* <Route exact path="/:resource" component={Overview} /> */}
-        <Route path="/orders/:uniqueId" component={Order}></Route>
+        <Route path="/tests" component={Overview} />
+        <Route path="/orders/:uniqueId" component={Order} />
       </div>
     </Router>
   </Provider>,

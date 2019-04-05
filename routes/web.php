@@ -11,19 +11,12 @@
 |
 */
 
-Auth::routes([
-    'register' => false,
-    'reset' => false,
-    'verify' => false,
-]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::view('/{path?}', 'welcome')
      ->where('path', '.*')
      ->name('react');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-
-// Route::get('/home', 'HomeController@index')->name('home');
