@@ -6,7 +6,7 @@ class Banner extends Component {
   render(){
     return (
       <StyledRow>
-        <Col md={12}>
+        <Col>
           <StyledImage src="/images/ToniMarie-01.svg" />
         </Col>
       </StyledRow>

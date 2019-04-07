@@ -22,7 +22,7 @@ ReactDOM.render(
     <Router>
       <div>
         <Route exact path="/" component={HomePage} />
-        <Route path="/tests" component={Overview} />
+        <Route path="/photos" component={Overview} />
         <Route path="/orders/:uniqueId" component={Order} />
       </div>
     </Router>

@@ -14,6 +14,5 @@ export const ImageDiv = styled.div`
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   background-size: 1000px;
-  height: 215px;
-  padding-top: 15px;
+  height: 280px;
 `;

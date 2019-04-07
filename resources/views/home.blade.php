@@ -21,7 +21,6 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Slug</th>
-                                <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,9 +30,6 @@
                                     <td><a href="#modal-{{$image->id}}" data-toggle="modal" data-target="#modal-{{$image->id}}">{{$image->name}}</a></td>
                                     <td>{{$image->description}}</td>
                                     <td>{{$image->slug}}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger btn-xs" id="{{$image->id}}">x</button>
-                                    </td>
                                 </tr>
                                 <div class="modal fade" id="modal-{{$image->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-{{$image->id}}Label" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -60,17 +56,6 @@
         }
       }).done(function(data){
         console.log(data);
-      });
-    });
-
-    $('button').click(function(){
-      let id = $(this).prop('id');
-      $.ajax({
-        method: "DELETE",
-        url: "/api/images/"+$(this).prop('id'),
-      }).done(function(){
-        $('#table-row-'+id).remove();
-        $('#modal-'+id).remove();
       });
     });
 </script>
