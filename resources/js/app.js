@@ -15,7 +15,7 @@ import store from './store';
 
 import HomePage from './components/HomePage';
 import Overview from './components/Overview';
-import Order from './components/Order';
+import Order from './components/Show';
 
 ReactDOM.render(
   <Provider store={store}>
