@@ -47,7 +47,7 @@ class OrderController extends Controller
             'unique_id' => uniqid(),
         ]);
 
-        // Mail::to(env('ADMIN_EMAIL'))->send(new NewOrder($order));
+         Mail::to(env('ADMIN_EMAIL'))->send(new NewOrder($order));
 
         return new OrderResource($order);
     }
@@ -80,7 +80,7 @@ class OrderController extends Controller
             return response(null, Response::HTTP_NOT_FOUND);
         }
 
-        // Mail::to(env('ADMIN_EMAIL'))->send(new UpdateOrder($order));
+         Mail::to(env('ADMIN_EMAIL'))->send(new UpdateOrder($order));
 
         return new OrderResource($order->first());
     }
