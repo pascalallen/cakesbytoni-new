@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Mail\NewOrder;
+use App\Mail\UpdateOrder;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Order;
