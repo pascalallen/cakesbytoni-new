@@ -82,7 +82,7 @@ class OrderController extends Controller
             return response(null, Response::HTTP_NOT_FOUND);
         }
 
-         Mail::to(env('ADMIN_EMAIL'))->send(new UpdateOrder($order));
+         Mail::to(env('ADMIN_EMAIL'))->send(new UpdateOrder($order->first()));
 
         return new OrderResource($order->first());
     }
