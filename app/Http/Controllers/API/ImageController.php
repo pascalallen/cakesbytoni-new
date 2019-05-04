@@ -26,7 +26,7 @@ class ImageController extends Controller
                 ->paginate($pageSize);
         } else {
             $images = Image::where('main', true)
-                ->orderBy('created_at', 'desc')
+                ->inRandomOrder()
                 ->paginate($pageSize);
         }
 
