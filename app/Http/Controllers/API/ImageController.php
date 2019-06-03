@@ -13,6 +13,7 @@ class ImageController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index(Request $request)
@@ -36,8 +37,8 @@ class ImageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return void
      */
     public function store(Request $request)
     {
@@ -48,7 +49,7 @@ class ImageController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \App\Http\Resources\Image
+     * @return ImageResource
      */
     public function show($id)
     {
@@ -59,9 +60,9 @@ class ImageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
-     * @return \App\Http\Resources\Image|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @return ImageResource|\Illuminate\Contracts\Routing\ResponseFactory|Response
      */
     public function update(Request $request, $id)
     {
@@ -79,7 +80,7 @@ class ImageController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
      */
     public function destroy($id)
     {

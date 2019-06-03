@@ -33,7 +33,7 @@ class OrderController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  NewOrderRequest  $request
-     * @return \App\Http\Resources\Order
+     * @return OrderResource
      */
     public function store(NewOrderRequest $request)
     {
@@ -58,7 +58,7 @@ class OrderController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \App\Http\Resources\Order
+     * @return OrderResource
      */
     public function show($id)
     {
@@ -69,9 +69,9 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  Request  $request
      * @param  int  $id
-     * @return \App\Http\Resources\Order|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @return OrderResource|\Illuminate\Contracts\Routing\ResponseFactory|Response
      */
     public function update(Request $request, $id)
     {
@@ -91,7 +91,7 @@ class OrderController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
      */
     public function destroy($id)
     {
