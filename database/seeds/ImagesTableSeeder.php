@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class ImagesTableSeeder extends Seeder
 {
@@ -10,11 +12,18 @@ class ImagesTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
-        DB::table('images')->truncate();
+        $this->getImages()->each(static function ($attributes) {
+            DB::table('images')->updateOrInsert([
+                'imgur_id' => $attributes['imgur_id'],
+            ], $attributes);
+        });
+    }
 
-        DB::table('images')->insert([
+    protected function getImages(): Collection
+    {
+        return collect([
             ['name' => 'Unicorn Cake', 'imgur_id' => 'yR8LgqG', 'category_id' => 1, 'slug' => 'unicorn-cake-0', 'main' => true, 'created_at' => Carbon::now()],
             ['name' => 'Unicorn Cake', 'imgur_id' => 'cwsNKum', 'category_id' => 1, 'slug' => 'unicorn-cake-1', 'main' => true, 'created_at' => Carbon::now()],
             ['name' => 'Unicorn Cake', 'imgur_id' => 'fR6FkFo', 'category_id' => 1, 'slug' => 'unicorn-cake-2', 'main' => true, 'created_at' => Carbon::now()],
@@ -70,6 +79,24 @@ class ImagesTableSeeder extends Seeder
             ['name' => 'Oh Baby', 'imgur_id' => 'p1eq4u5', 'category_id' => 1, 'slug' => 'oh-baby-cake-1', 'main' => true, 'created_at' => Carbon::now()],
             ['name' => 'Oh Baby', 'imgur_id' => '7f3CxgC', 'category_id' => 1, 'slug' => 'oh-baby-cake-2', 'main' => true, 'created_at' => Carbon::now()],
             ['name' => 'Oh Baby', 'imgur_id' => 'oyIccq5', 'category_id' => 1, 'slug' => 'oh-baby-cake-3', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'ZgG7qH4', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'dLTmMno', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'LDSHeP4', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'DNG2wfO', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'RoitCwK', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'pbt7oDT', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => '7KzYaKG', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'zCdLR2n', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'xNdoZTI', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'ZGxTxGB', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'itxbXaI', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'MwQ1USe', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'TrHivFM', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'WTyqm4m', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'PGQECFC', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'qm3UDQl', 'category_id' => 1, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'kpTVboS', 'category_id' => 1, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => '1hUcTmM', 'category_id' => 1, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
         ]);
     }
 }
