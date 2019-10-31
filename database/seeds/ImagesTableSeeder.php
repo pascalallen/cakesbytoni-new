@@ -97,6 +97,15 @@ class ImagesTableSeeder extends Seeder
             ['name' => '', 'imgur_id' => 'qm3UDQl', 'category_id' => 1, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
             ['name' => '', 'imgur_id' => 'kpTVboS', 'category_id' => 1, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
             ['name' => '', 'imgur_id' => '1hUcTmM', 'category_id' => 1, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'TYiSqtR', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => '46M1CgU', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'alkk5Vr', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'TIxxTSR', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => '9invQWf', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'ZikrB8w', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'RzmPj5E', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'lCCAdjD', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
+            ['name' => '', 'imgur_id' => 'Vbf7ZAK', 'category_id' => 2, 'slug' => '', 'main' => true, 'created_at' => Carbon::now()],
         ]);
     }
 }
