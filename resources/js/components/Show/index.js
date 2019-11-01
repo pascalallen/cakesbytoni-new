@@ -4,6 +4,7 @@ import { fetchSingle, updateRecord } from '../../actions/resource';
 import {Form, Button, Col, Alert} from 'react-bootstrap';
 import moment from 'moment';
 import {StyledRow, ImageDiv, StyledContainer} from './styles';
+import { Helmet } from "react-helmet/es/Helmet";
 
 const mapStateToProps = state => ({
   order: state.resource.single,
@@ -52,6 +53,10 @@ class Show extends Component {
 
     return (
       <StyledContainer>
+        <Helmet>
+            <title>Cakes By Toni | Modify Order</title>
+            <meta name="description" content="Organic. Gluten-free. Vegan. We only use premium ingredients with state of the art tools and techniques to deliver a treat like no other. Let us make the perfect cake for your next special occasion!" />
+        </Helmet>
         <StyledRow>
           <Form
             noValidate

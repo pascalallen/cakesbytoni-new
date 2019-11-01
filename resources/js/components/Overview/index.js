@@ -5,6 +5,7 @@ import { fetchAll } from '../../actions/resource';
 import Image from "react-bootstrap/Image"
 import {StyledSpinner} from './styles';
 import Gallery from 'react-grid-gallery';
+import { Helmet } from "react-helmet/es/Helmet";
 
 const mapStateToProps = state => ({
   data: state.resource.all,
@@ -58,6 +59,10 @@ class Overview extends React.Component {
 
     return (
       <div style={{paddingRight: "15px", paddingLeft: "15px", width: "100%"}}>
+        <Helmet>
+            <title>Cakes By Toni | Gallery</title>
+            <meta name="description" content="Organic. Gluten-free. Vegan. We only use premium ingredients with state of the art tools and techniques to deliver a treat like no other. Let us make the perfect cake for your next special occasion!" />
+        </Helmet>
         <h1>Photos</h1><a href="/" style={{float: "right", marginTop: "-40px"}} className="text-muted" >Home</a>
         {this.props.fetching ?
           <StyledSpinner animation="grow" />
