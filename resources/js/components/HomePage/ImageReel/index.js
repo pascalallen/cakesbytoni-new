@@ -37,7 +37,6 @@ class ImageReel extends Component {
       <StyledRow>
         {fetched && data.map((item, i) => (
           <StyledCol
-            md={4}
             key={i}
             src={`https://i.imgur.com/${item.imgur_id}.jpg`}
           >
